@@ -40,7 +40,7 @@ jobs:
           packages: 'platform-tools'
 
       - name: Install Android SDK platform 37
-        run: sdkmanager --install "platforms;android-37"
+        run: sdkmanager --install "platforms;android-37.0"
 
       - name: Build ABI-split debug APKs
         run: gradle --no-daemon :app:assembleDebug
