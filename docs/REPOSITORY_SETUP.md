@@ -15,7 +15,7 @@
 - Enable two-factor authentication on the account.
 - Keep Actions permissions read-only by default; this build workflow uses no repository secrets.
 - Enable Dependabot alerts, security updates, secret scanning, and private vulnerability reporting where available.
-- Protect the default branch: require pull requests and passing Android ABI build before merge; block force pushes and deletion.
+- `main` is protected: require a pull request, one approval, and the `Build separate Android APKs` check; block force pushes/deletion and require linear history/conversation resolution.
 - Do not add signing keys or credentials to the repository. Add release-signing secrets only when a release workflow is approved.
 - Before public release, review source, licenses, screenshots, data-loss warnings, and security policy.
 

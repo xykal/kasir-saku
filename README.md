@@ -1,5 +1,15 @@
 # Kasir Saku
 
+[![Android ABI APKs](https://github.com/xykal/kasir-saku/actions/workflows/android-build.yml/badge.svg?branch=main)](https://github.com/xykal/kasir-saku/actions/workflows/android-build.yml)
+
+## Bahasa Indonesia
+
+Kasir Saku adalah aplikasi kasir Android yang sedang dikembangkan untuk usaha kecil. Fokus awalnya: transaksi offline satu perangkat, stok, dan tata letak adaptif untuk ponsel/tablet. Build CI menghasilkan dua APK debug terpisah: `arm64-v8a` dan `armeabi-v7a`—tanpa APK universal.
+
+**Status:** prototipe aktif, belum siap produksi. Cetak printer, invoice PDF, backup/pemulihan, serta uji perangkat nyata belum selesai. Jangan masukkan data pelanggan atau transaksi nyata.
+
+## English
+
 Kasir Saku is an **early Android POS project** for small shops. The first milestone focuses on one device, local transactions, stock checks, and a tablet-friendly cashier layout.
 
 > **Status:** prototype / active development. Not production-ready. Printer support, backup/restore, and migration tests are not implemented yet.
@@ -17,15 +27,15 @@ Thermal Bluetooth/USB printing, PDF invoice/receipt, barcode scanning, discounts
 
 ## Build APKs with GitHub Actions
 
-1. Create a GitHub repository with this project folder as the repository root.
-2. Push the project to `main` or `master`, or run **Actions → Android ABI APKs → Run workflow**.
-3. Download the two separate artifacts: `kasir-saku-arm64-v8a` and `kasir-saku-armeabi-v7a`.
+1. Open the [public repository](https://github.com/xykal/kasir-saku).
+2. Builds run on pushes to `main`; a manual run is available under **Actions → Android ABI APKs → Run workflow**.
+3. Download the separate artifacts: `kasir-saku-arm64-v8a` and `kasir-saku-armeabi-v7a`.
 
 The workflow checks that both ABI outputs exist and rejects a universal APK. These are **debug APKs**, not signed release builds. Release signing is intentionally not configured; add signing credentials through GitHub Secrets only after selecting a release process.
 
 ## Local development
 
-Requirements: Android Studio, Android SDK 37, JDK 17, and Gradle 9.4.1. Create the wrapper once from this directory with `gradle wrapper --gradle-version 9.4.1`, then run `./gradlew :app:assembleDebug`. The workspace scaffold has not yet been compiled; CI or a local Android SDK build must verify it before device testing.
+Requirements: Android Studio, Android SDK 37.0, JDK 17, and Gradle 9.4.1. Create the wrapper once from this directory with `gradle wrapper --gradle-version 9.4.1`, then run `./gradlew :app:assembleDebug`. GitHub Actions has successfully built both ABI debug APKs; real phone, tablet, and printer hardware testing is still outstanding.
 
 The minimum Android API is 23. ABI describes CPU architecture—not screen size. The Compose layout adapts separately for phones, tablets, and landscape displays.
 

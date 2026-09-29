@@ -1,32 +1,28 @@
-# Publish this project to GitHub
+# GitHub repository
 
-The project owner selected a **public** repository and the MIT License. The current workspace has no GitHub CLI/authentication or configured remote, so it cannot create or push `xykal/kasir-saku` directly. Run these steps in a terminal where GitHub CLI is already authenticated as `xykal`.
+## Live project
 
-## Create the public repository
+- Repository: https://github.com/xykal/kasir-saku
+- Visibility: public (owner decision)
+- License: MIT
+- Default branch: `main`
+- Topics: `android`, `kotlin`, `jetpack-compose`, `point-of-sale`, `pos`, `offline-first`, `sqlite`, `inventory-management`, `small-business`, `retail`, `cashier`, `indonesia`.
 
-From this project directory:
+## Repository controls configured
+
+- Secret scanning, push protection, and Dependabot security updates enabled.
+- `main` branch protection requires a pull request, one approval, and the successful `Build separate Android APKs` check. Force-push and branch deletion are blocked; linear history and conversation resolution are required.
+- Actions workflow permissions are read-only; build requires no repository secrets.
+- Dependabot checks Gradle and GitHub Actions dependencies weekly.
+
+## Build artifacts
+
+The workflow builds separate debug artifacts named `kasir-saku-arm64-v8a` and `kasir-saku-armeabi-v7a`, rejects a universal APK, and retains artifacts for seven days. The initial successful build is recorded at [GitHub Actions run 36625714316](https://github.com/xykal/kasir-saku/actions/runs/36625714316).
+
+## Clone
 
 ```sh
-git init -b main
-git add .
-git commit -m "chore: scaffold Kasir Saku Android POS"
-gh repo create xykal/kasir-saku --public --source=. --remote=origin --push --description "Offline-first Android POS starter for small shops; separate arm64-v8a and armeabi-v7a APK builds."
+git clone https://github.com/xykal/kasir-saku.git
 ```
 
-## Add repository topics
-
-In GitHub, open **Settings → General → Topics** and add:
-
-`android`, `kotlin`, `jetpack-compose`, `point-of-sale`, `pos`, `offline-first`, `sqlite`, `inventory-management`, `small-business`, `retail`, `cashier`, `indonesia`.
-
-These topics describe implemented scope; do not add printer/thermal topics until named printer models have passed hardware tests.
-
-## Harden repository settings
-
-- Keep visibility **Public** as requested.
-- Enable secret scanning, Dependabot alerts/security updates, and private vulnerability reporting where available.
-- Protect `main`: require a pull request and a successful **Android ABI APKs** check; disallow force-push and branch deletion.
-- Keep Actions workflow permissions read-only. The build workflow needs no secrets.
-- Do not create release signing secrets until release signing is designed. Never commit credentials or production data.
-
-After the first push, use **Actions → Android ABI APKs → Run workflow** or push a follow-up commit to `main` to produce the two debug APK artifacts.
+Do not add release-signing keys, API credentials, customer data, or real transaction exports to the public repository. Rotate any credential that was previously uploaded as a plain-text file.
