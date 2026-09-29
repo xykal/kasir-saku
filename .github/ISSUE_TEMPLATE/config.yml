@@ -1,0 +1,5 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Report a security vulnerability privately
+    url: https://github.com/xykal/kasir-saku/security/advisories/new
+    about: Do not report vulnerabilities or share credentials in public issues.

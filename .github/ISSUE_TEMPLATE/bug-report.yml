@@ -1,0 +1,29 @@
+name: Bug report
+description: Report a reproducible problem in Kasir Saku.
+title: "bug: "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: Never include credentials, customer data, real receipts, or production database files.
+  - type: input
+    id: device
+    attributes:
+      label: Device and Android version
+      placeholder: Device model, Android version, ABI
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      description: List the exact steps and expected versus actual result.
+    validations:
+      required: true
+  - type: textarea
+    id: logs
+    attributes:
+      label: Sanitized logs
+      description: Remove personal data and secrets before pasting.
+    validations:
+      required: false
