@@ -25,7 +25,7 @@ The workflow checks that both ABI outputs exist and rejects a universal APK. The
 
 ## Local development
 
-Requirements: Android Studio, Android SDK 36, JDK 17, and Gradle 9.4.1. Create the wrapper once from this directory with `gradle wrapper --gradle-version 9.4.1`, then run `./gradlew :app:assembleDebug`. The workspace scaffold has not yet been compiled; CI or a local Android SDK build must verify it before device testing.
+Requirements: Android Studio, Android SDK 37, JDK 17, and Gradle 9.4.1. Create the wrapper once from this directory with `gradle wrapper --gradle-version 9.4.1`, then run `./gradlew :app:assembleDebug`. The workspace scaffold has not yet been compiled; CI or a local Android SDK build must verify it before device testing.
 
 The minimum Android API is 23. ABI describes CPU architecture—not screen size. The Compose layout adapts separately for phones, tablets, and landscape displays.
 

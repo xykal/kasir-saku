@@ -34,6 +34,9 @@ jobs:
         with:
           gradle-version: '9.4.1'
 
+      - name: Install Android SDK platform 37
+        run: sdkmanager --install "platforms;android-37"
+
       - name: Build ABI-split debug APKs
         run: gradle --no-daemon :app:assembleDebug
 

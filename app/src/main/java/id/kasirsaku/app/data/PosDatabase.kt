@@ -76,7 +76,7 @@ class PosDatabase(context: Context) : SQLiteOpenHelper(context, "kasir-saku.db",
                     db.rawQuery("SELECT stock FROM products WHERE id=?", arrayOf(line.product.id.toString())).use { cursor ->
                         require(cursor.moveToFirst() && cursor.getInt(0) >= line.quantity) { "Stok produk tidak cukup" }
                     }
-                    db.execSQL("UPDATE products SET stock=stock-? WHERE id=?", arrayOf(line.quantity, line.product.id))
+                    db.execSQL("UPDATE products SET stock=stock-? WHERE id=?", arrayOf<Any>(line.quantity, line.product.id))
                 }
             }
             val now = System.currentTimeMillis()

@@ -176,7 +176,7 @@ fun SalesList(sales: List<SaleSummary>, modifier: Modifier = Modifier) {
                 Row(Modifier.padding(14.dp), verticalAlignment = Alignment.CenterVertically) {
                     Column(Modifier.weight(1f)) {
                         Text(sale.id, fontWeight = FontWeight.SemiBold)
-                        Text("${sale.itemCount} item · ${sale.method} · ${SimpleDateFormat("HH:mm", Locale("id", "ID")).format(Date(sale.timestamp))}", fontSize = 12.sp, color = MaterialTheme.colorScheme.secondary)
+                        Text("${sale.itemCount} item · ${sale.method} · ${SimpleDateFormat("HH:mm", Locale.forLanguageTag("id-ID")).format(Date(sale.timestamp))}", fontSize = 12.sp, color = MaterialTheme.colorScheme.secondary)
                     }
                     Text(price(sale.total), fontWeight = FontWeight.Bold)
                 }
